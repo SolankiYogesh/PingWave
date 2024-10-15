@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "47634091163",
+    "project_id": "pingwave-ca4da",
+    "storage_bucket": "pingwave-ca4da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47634091163:android:59088646a7bd8fe3d14a3e",
+        "android_client_info": {
+          "package_name": "com.ping_wave"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpk0JyXEBwTW3i7mvhQOxXMYmS918tUxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
