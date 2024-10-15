@@ -1,16 +1,11 @@
-# ping_wave
+# PingWave
 
-A new Flutter project.
+Chat Application
 
 ## Getting Started
+  ### Auth Design
+  https://www.figma.com/design/BkZ0ScHtIYqN6fVAT0NsaN/RADIUS---Sign-up%2FLogin-Screen-Mobile-App-UI-(Community)?node-id=1-21&node-type=frame&t=TYSyHQG2h64AqYLc-0
 
-This project is a starting point for a Flutter application.
+  ### Chat Design
+  https://www.figma.com/design/rQRAIYZLVGVYUynWOsjAjR/Chat-App-UI-(Community)?node-id=4-2&node-type=frame&t=ucsMqlJ1zl0wpB6k-0
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
