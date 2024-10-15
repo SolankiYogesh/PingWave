@@ -4,11 +4,16 @@ import 'package:get/get.dart';
 
 class ThemeService {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  final _key = 'isThemeMode';
+  final _key = 'isDarkMode';
 
   Future<ThemeMode> getThemeMode() async {
     final prefs = await _prefs;
-    return prefs.getBool(_key) == true ? ThemeMode.dark : ThemeMode.light;
+    var isDarkMode = prefs.getBool(_key);
+    return isDarkMode == null
+        ? ThemeMode.dark
+        : isDarkMode
+            ? ThemeMode.dark
+            : ThemeMode.light;
   }
 
   Future<void> setThemeMode(ThemeMode themeMode) async {
