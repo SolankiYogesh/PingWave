@@ -2,7 +2,7 @@
 // ignore_for_file: type=lint
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
-    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+    show defaultTargetPlatform, TargetPlatform;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -16,39 +16,17 @@ import 'package:flutter/foundation.dart'
 /// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    if (kIsWeb) {
-      return web;
-    }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
         return ios;
-      case TargetPlatform.macOS:
-        return macos;
-      case TargetPlatform.windows:
-        return windows;
-      case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBZJlYnd2uHrohXUeFKsP417pn_HD2lJxY',
-    appId: '1:47634091163:web:feb22651023cda37d14a3e',
-    messagingSenderId: '47634091163',
-    projectId: 'pingwave-ca4da',
-    authDomain: 'pingwave-ca4da.firebaseapp.com',
-    storageBucket: 'pingwave-ca4da.appspot.com',
-    measurementId: 'G-0K3SYDSYRQ',
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDpk0JyXEBwTW3i7mvhQOxXMYmS918tUxg',
@@ -66,24 +44,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'pingwave-ca4da.appspot.com',
     iosBundleId: 'com.example.pingWave',
   );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAu8m_IUzNny9Oa-i29SA754H5KPJWh4Mg',
-    appId: '1:47634091163:ios:6a4138746219a1d5d14a3e',
-    messagingSenderId: '47634091163',
-    projectId: 'pingwave-ca4da',
-    storageBucket: 'pingwave-ca4da.appspot.com',
-    iosBundleId: 'com.example.pingWave',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyBZJlYnd2uHrohXUeFKsP417pn_HD2lJxY',
-    appId: '1:47634091163:web:3e9c60195ebafbb6d14a3e',
-    messagingSenderId: '47634091163',
-    projectId: 'pingwave-ca4da',
-    authDomain: 'pingwave-ca4da.firebaseapp.com',
-    storageBucket: 'pingwave-ca4da.appspot.com',
-    measurementId: 'G-8N4JHN3RLB',
-  );
-
 }
