@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'pingwave-ca4da.appspot.com',
     measurementId: 'G-8N4JHN3RLB',
   );
+
 }
