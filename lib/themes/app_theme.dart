@@ -6,8 +6,7 @@ class AppTheme {
   static final darkTheme = ThemeData(
     brightness: Brightness.dark,
     colorScheme: ColorScheme.dark(
-      primary: AppColors.secondary, // Adjust if needed
-      background: AppColors.dark,
+      primary: AppColors.secondary,
       surface: AppColors.dark,
       error: Colors.redAccent, // You can customize error color
     ),
@@ -28,8 +27,7 @@ class AppTheme {
   static final lightTheme = ThemeData(
     brightness: Brightness.light,
     colorScheme: ColorScheme.light(
-      primary: AppColors.secondary, // Adjust if needed
-      background: AppColors.white,
+      primary: AppColors.secondary,
       surface: AppColors.white,
       error: Colors.redAccent, // You can customize error color
     ),

@@ -1,11 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:get/get.dart';
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:ping_wave/screens/login_screen/login_screen.dart';
+// import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:ping_wave/screens/auth_screen/auth_screen.dart';
 
 import 'package:ping_wave/themes/app_theme.dart';
 import 'package:ping_wave/themes/theme_service.dart';
@@ -20,7 +19,6 @@ void main() async {
     log(details.toString());
   };
   runApp(MyApp(initialTheme: initialTheme));
-  FlutterNativeSplash.remove(); // Remove the splash screen
 }
 
 class MyApp extends StatelessWidget {
@@ -29,23 +27,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initTheme = initialTheme == ThemeMode.dark
-        ? AppTheme.darkTheme
-        : AppTheme.lightTheme;
+    // final initTheme = initialTheme == ThemeMode.dark
+    //     ? AppTheme.darkTheme
+    //     : AppTheme.lightTheme;
 
-    return ThemeProvider(
-      duration: const Duration(milliseconds: 500),
-      initTheme: initTheme,
-      builder: (p0, theme) {
-        return GetMaterialApp(
-          transitionDuration: const Duration(seconds: 1),
-          defaultTransition: Transition.native,
-          debugShowCheckedModeBanner: false,
-          debugShowMaterialGrid: false,
-          theme: theme,
-          home: const LoginScreen(),
-        );
-      },
+    return GetMaterialApp(
+      transitionDuration: const Duration(seconds: 1),
+      defaultTransition: Transition.native,
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
+      theme: AppTheme.lightTheme,
+      home: const AuthScreen(),
     );
+
+    // return ThemeProvider(
+    //   duration: const Duration(milliseconds: 500),
+    //   initTheme: AppTheme.lightTheme,
+    //   builder: (p0, theme) {
+    //     return GetMaterialApp(
+    //       transitionDuration: const Duration(seconds: 1),
+    //       defaultTransition: Transition.native,
+    //       debugShowCheckedModeBanner: false,
+    //       debugShowMaterialGrid: false,
+    //       theme: AppTheme.lightTheme,
+    //       home: const LoginScreen(),
+    //     );
+    //   },
+    // );
   }
 }

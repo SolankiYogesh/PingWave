@@ -6,19 +6,36 @@ class ThemeService {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   final _key = 'isDarkMode';
 
-  Future<ThemeMode> getThemeMode() async {
+  // Add a private variable to cache the current theme mode state
+  bool? _isDarkModeCached;
+
+  ThemeService() {
+    // Load the initial theme mode on instantiation
+    _loadInitialThemeMode();
+  }
+
+  Future<void> _loadInitialThemeMode() async {
     final prefs = await _prefs;
-    var isDarkMode = prefs.getBool(_key);
-    return isDarkMode == null
-        ? ThemeMode.dark
-        : isDarkMode
-            ? ThemeMode.dark
-            : ThemeMode.light;
+    _isDarkModeCached = prefs.getBool(_key);
+  }
+
+  Future<ThemeMode> getThemeMode() async {
+    // Return cached value if available
+    if (_isDarkModeCached != null) {
+      return _isDarkModeCached! ? ThemeMode.dark : ThemeMode.light;
+    }
+
+    // Fallback to default if cached value is null
+    return ThemeMode.dark;
   }
 
   Future<void> setThemeMode(ThemeMode themeMode) async {
     final prefs = await _prefs;
     await prefs.setBool(_key, themeMode == ThemeMode.dark);
+
+    // Update the cached value
+    _isDarkModeCached = themeMode == ThemeMode.dark;
+
     Get.changeThemeMode(themeMode);
   }
 
@@ -27,5 +44,11 @@ class ThemeService {
     final newThemeMode =
         currentThemeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
     await setThemeMode(newThemeMode);
+  }
+
+  // Make isDarkMode synchronous
+  bool isDarkMode() {
+    // Return the cached value or default to dark mode if it's not initialized
+    return _isDarkModeCached ?? true; // Assuming default is dark mode
   }
 }
