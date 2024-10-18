@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ping_wave/helpers/app_colors.dart';
+import 'package:ping_wave/screens/auth_screen/widgets/login_page.dart';
+import 'package:ping_wave/screens/auth_screen/widgets/register_page.dart';
 
 class TabView extends StatefulWidget {
   const TabView({super.key});
@@ -23,21 +25,19 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
 
   @override
   void initState() {
-    _tabController = TabController(length: 2, vsync: this);
     super.initState();
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
   void dispose() {
-    super.dispose();
     _tabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      padding: EdgeInsets.all(0),
+    return Column(
       children: [
         Container(
           decoration: BoxDecoration(
@@ -45,7 +45,7 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
             borderRadius: BorderRadius.circular(80.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: TabBar(
               dividerColor: Colors.transparent,
               controller: _tabController,
@@ -61,17 +61,16 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-      ]
-          .map((item) => Column(
-                /// Added a divider after each item to let the tabbars have room to breathe
-                children: [
-                  item,
-                  Divider(
-                    color: Colors.transparent,
-                  )
-                ],
-              ))
-          .toList(),
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              LoginPage(),
+              RegisterPage(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       defaultTransition: Transition.native,
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      theme: AppTheme.lightTheme,
+      theme: AppTheme.darkTheme,
       home: const AuthScreen(),
     );
 

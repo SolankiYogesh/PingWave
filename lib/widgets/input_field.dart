@@ -1,6 +1,7 @@
 // lib/icon_input_field.dart
 
 import 'package:flutter/material.dart';
+import 'package:ping_wave/helpers/app_colors.dart';
 
 class InputField extends StatelessWidget {
   final IconData icon;
@@ -26,21 +27,22 @@ class InputField extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
-        prefixIcon: Icon(icon, color: Colors.grey),
+        hintStyle: TextStyle(fontSize: 20.0, color: AppColors.greyShade64),
+        prefixIcon: Icon(icon, color: Color(0xFF2563EB)),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: BorderSide(color: Colors.grey),
+          borderSide: BorderSide(color: AppColors.greyShade2e),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
-          borderSide: BorderSide(color: Theme.of(context).primaryColor),
+          borderSide: BorderSide(color: Color(0xFF2563EB)),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide(color: Colors.grey),
         ),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Colors.transparent,
       ),
     );
   }
