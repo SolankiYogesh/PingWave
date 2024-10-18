@@ -36,7 +36,10 @@ class AuthScreen extends StatelessWidget {
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40)),
               ),
-              child: TabView(),
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: TabView(),
+              ),
             ),
           ),
         ],

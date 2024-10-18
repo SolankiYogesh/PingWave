@@ -35,34 +35,43 @@ class _TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView(
-        children: [
-          TabBar(
-            controller: _tabController,
-            tabs: _tabs,
-            unselectedLabelColor: _unselectedColor,
-            labelColor: _selectedColor,
-            indicatorSize: TabBarIndicatorSize.tab,
-            indicator: BoxDecoration(
-              borderRadius: BorderRadius.circular(80.0),
-              color: backgroundColor,
-              border: Border.all(color: borderColor),
+    return ListView(
+      shrinkWrap: true,
+      padding: EdgeInsets.all(0),
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: AppColors.greyShade2e,
+            borderRadius: BorderRadius.circular(80.0),
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: TabBar(
+              dividerColor: Colors.transparent,
+              controller: _tabController,
+              tabs: _tabs,
+              unselectedLabelColor: _unselectedColor,
+              labelColor: _selectedColor,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(80.0),
+                color: backgroundColor,
+                border: Border.all(color: borderColor),
+              ),
             ),
           ),
-        ]
-            .map((item) => Column(
-                  /// Added a divider after each item to let the tabbars have room to breathe
-                  children: [
-                    item,
-                    Divider(
-                      color: Colors.transparent,
-                    )
-                  ],
-                ))
-            .toList(),
-      ),
+        ),
+      ]
+          .map((item) => Column(
+                /// Added a divider after each item to let the tabbars have room to breathe
+                children: [
+                  item,
+                  Divider(
+                    color: Colors.transparent,
+                  )
+                ],
+              ))
+          .toList(),
     );
   }
 }
