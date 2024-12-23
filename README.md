@@ -1,4 +1,4 @@
-# PingWave
+# PingWave In Flutter
 
 Chat Application
 
